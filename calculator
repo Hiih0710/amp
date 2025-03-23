@@ -1,0 +1,192 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto" 
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent" 
+    android:orientation="horizontal" 
+    android:stretchColumns="1"> 
+ 
+    <LinearLayout 
+        android:layout_width="match_parent" 
+        android:layout_height="match_parent" 
+        android:orientation="vertical"> 
+ 
+        <EditText 
+            android:id="@+id/et1" 
+            android:layout_width="match_parent" 
+            android:layout_height="70dp" 
+            android:ems="10" 
+            android:inputType="textPersonName" 
+            android:text="Input1" /> 
+ 
+        <EditText 
+            android:id="@+id/et2" 
+            android:layout_width="match_parent" 
+            android:layout_height="64dp" 
+            android:ems="10" 
+            android:inputType="textPersonName" 
+            android:text="Input2" /> 
+ 
+        <Button 
+            android:id="@+id/btnAdd" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Addition" /> 
+ 
+        <Button 
+            android:id="@+id/btnSub" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Subtraction" /> 
+ 
+        <Button 
+            android:id="@+id/btnMult" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Multiplication" /> 
+ 
+        <Button 
+            android:id="@+id/btnDiv" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Division" /> 
+ 
+        <Button 
+            android:id="@+id/btnClear" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Clear" /> 
+ 
+        <TextView 
+            android:id="@+id/tv1" 
+            android:layout_width="match_parent" 
+            android:layout_height="63dp" 
+            android:text="Output" 
+            android:textColor="@android:color/background_dark" 
+            android:textSize="18sp" 
+            android:textStyle="bold" 
+            app:fontFamily="casual" /> 
+    </LinearLayout> 
+</LinearLayout>
+
+
+
+  public class MainActivity extends AppCompatActivity  { 
+ 
+   EditText t1,t2; 
+   Button b1,b2,b3,b4,b5; 
+   TextView tv1; 
+   int n1=0,n2=0; 
+    String s1,s2; 
+    @Override 
+    protected void onCreate(Bundle savedInstanceState) 
+    { 
+        super.onCreate(savedInstanceState); 
+        setContentView(R.layout.activity_main); 
+ 
+        t1 = (EditText) findViewById(R.id.et1); 
+        t2 = (EditText) findViewById(R.id.et2); 
+ 
+        b1 = (Button) findViewById(R.id.btnAdd); 
+        b2 = (Button) findViewById(R.id.btnSub); 
+        b3 = (Button) findViewById(R.id.btnMult); 
+        b4 = (Button) findViewById(R.id.btnDiv); 
+        b5 = (Button) findViewById(R.id.btnClear); 
+ 
+        tv1 = (TextView) findViewById(R.id.tv1); 
+ 
+ 
+ 
+ 
+        b1.setOnClickListener(new OnClickListener() { 
+            @Override 
+            public void onClick(View v) { 
+
+ 
+                try { 
+                    String s1 = t1.getText().toString(); 
+                    String s2 = t2.getText().toString(); 
+                    n1 = Integer.parseInt(s1); 
+                    n2 = Integer.parseInt(s1); 
+                    int sum = n1 + n2; 
+                    tv1.setText("Addition ="+sum); 
+                } 
+                catch (NumberFormatException e) 
+                { 
+ 
+                } 
+ 
+            } 
+        }); 
+ 
+        b2.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View v) { 
+ 
+                try { 
+                    String s1 = t1.getText().toString(); 
+                    String s2 = t2.getText().toString(); 
+                    n1 = Integer.parseInt(s1); 
+                    n2 = Integer.parseInt(s1); 
+                    int sub = n1 - n2; 
+                    tv1.setText("Subtraction ="+sub); 
+                } 
+                catch (NumberFormatException e) 
+                { 
+ 
+                } 
+ 
+            } 
+        }); 
+        b3.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View v) { 
+ 
+                try { 
+                    String s1 = t1.getText().toString(); 
+                    String s2 = t2.getText().toString(); 
+                    n1 = Integer.parseInt(s1); 
+                    n2 = Integer.parseInt(s1); 
+                    int m = n1 * n2; 
+                    tv1.setText("Multiplication ="+m);
+                } 
+                catch (NumberFormatException e) 
+                { 
+ 
+                } 
+ 
+            } 
+        }); 
+ 
+        b4.setOnClickListener(new View.OnClickListener() { 
+            @Override 
+            public void onClick(View v) { 
+ 
+                try { 
+                    String s1 = t1.getText().toString(); 
+                    String s2 = t2.getText().toString(); 
+                    n1 = Integer.parseInt(s1); 
+                    n2 = Integer.parseInt(s1); 
+                    int d = n1 / n2; 
+                    tv1.setText("Division ="+d); 
+                } 
+                catch (NumberFormatException e) 
+                { 
+ 
+                } 
+ 
+            } 
+        }); 
+ 
+ 
+        b5.setOnClickListener(new OnClickListener() { 
+            @Override 
+            public void onClick(View v) { 
+ 
+                t1.setText(" "); 
+                t2.setText(" "); 
+                tv1.setText(" "); 
+ 
+            } 
+        }); 
+} 
+} 

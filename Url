@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto" 
+    xmlns:tools="http://schemas.android.com/tools" 
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent" 
+    tools:context=".MainActivity"> 
+ 
+    <LinearLayout 
+        android:layout_width="match_parent" 
+        android:layout_height="match_parent" 
+        android:orientation="vertical"> 
+ 
+ 
+        <EditText 
+            android:hint="Type URL Here" 
+            android:id="@+id/website" 
+            android:layout_width="fill_parent" 
+            android:layout_height="75dp" 
+            android:ems="5"></EditText> 
+        <Button 
+            android:id="@+id/runWebsite" 
+            android:layout_width="fill_parent" 
+            android:layout_height="45dp" 
+            android:text="Run WebSite on Browser" /> 
+    </LinearLayout> 
+</RelativeLayout> 
+ 
+ 
+public class MainActivity extends AppCompatActivity  { 
+    @Override 
+    protected void onCreate(Bundle savedInstanceState) { 
+        super.onCreate(savedInstanceState); 
+        setContentView(R.layout.activity_main); 
+ 
+ 
+        Button runWebsite = (Button) findViewById(R.id.runWebsite); 
+        runWebsite.setOnClickListener(new View.OnClickListener() { 
+            public void onClick(View view) { 
+                EditText website = (EditText) findViewById(R.id.website); 
+                String strURL = website.getText().toString(); 
+                if (strURL.indexOf("http://www") < 0) { 
+                    strURL = "http://www." + strURL; 
+                } 
+                Intent implicit = new Intent(Intent.ACTION_VIEW, Uri.parse(strURL)); 
+                startActivity(implicit); 
+            } 
+        }); 
+ 
+        } 
+} 
